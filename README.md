@@ -1,5 +1,5 @@
 # MERNstack
-Official Repository for MERN stack Batch Digipodium.
+## Official Repository for MERN stack Batch Digipodium.
 
 
 ### Slides
