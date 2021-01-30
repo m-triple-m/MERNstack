@@ -15,11 +15,26 @@ const Login = () => {
     let today = new Date();
     let name = 'Mubassir';
 
+    let isLoggedin = false;
+
+    const getLoginMsg = () => {
+        if (isLoggedin) {
+            return <div className="alert alert-success" role="alert">
+                You are already Logged In!
+                    </div>
+        } else {
+            return <div className="alert alert-danger" role="alert">
+                OOps! You need to login first
+                    </div>
+        }
+    }
+
     return (
         <div className="col-md-6 mx-auto">
+            {getLoginMsg()}
             <div className="card shadow-lg" style={cssStyles.card}>
                 <div className="row">
-                    <div className="col-md-5">
+                    <div className="col-md-6">
                         <div style={cssStyles.myCardBody}>
                             <h1 className="text-center">SIGN UP</h1>
 
