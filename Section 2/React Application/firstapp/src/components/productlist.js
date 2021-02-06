@@ -1,25 +1,38 @@
+import { useEffect, useContext } from "react";
+import { ProductContext } from "../Context/productcontext";
+
 const Product = props => {
 
     console.log(props);
 
+    const handleCardClick = (product) => {
+        console.log(product);
+        console.log('Card was Clicked!!');
+    }
+
     return (
         <div className="container">
-            <div className="card">
+            <div className="card" onClick={e => { handleCardClick(props.data); }}>
                 <div className="card-body">
                     <div className="row">
-                        <div className="col-md-3">
+                        <div className="col-md-3 my-auto">
                             <img className="img-fluid" src="https://rukminim1.flixcart.com/image/312/312/kgtqhe80/computer/h/y/b/mi-na-thin-and-light-laptop-original-imafwz89mf2typdu.jpeg?q=70" />
                         </div>
                         <div className="col-md-6">
                             <h2>{props.data.name}</h2>
                             <h6 className="text-muted">{props.data.reviews} Reviews & {props.data.ratings} Ratings</h6>
-                            {
-                                props.data.specs.map()
-                            }
+
+                            <ul>
+                                {
+                                    props.data.specs.map((spec, index) => {
+                                        return (<li key={index}>{spec}</li>)
+                                    })
+                                }
+                            </ul>
                         </div>
                         <div className="col-md-3">
                             <h1>₹44,999</h1>
-                            <p><del className="text-muted">₹52,999</del>&nbsp;<span className="text-success">15% off</span></p>
+                            <p><del className="text-muted">₹52,999</del>&nbsp;<span className="text-success">{props.data.discount}% off</span></p>
                         </div>
                     </div>
                 </div>
@@ -30,15 +43,16 @@ const Product = props => {
 
 const ProductList = () => {
 
-    const productData = [
-        { name: 'Mi Notebook 14', reviews: 1426, ratings: 244, price: 44999, discount: 15, specs: ['Intel i5', '4GB DDR4 RAM'] },
-        { name: 'Asus Vivobook 14', reviews: 8124, ratings: 634, price: 44999, discount: 15 },
-    ]
+    useEffect(() => {
+        console.log("Data Fetched");
+    }, [])
+
+    const [products, setProduct] = useContext(ProductContext);
 
     return (
         <div>
             {
-                productData.map(product => {
+                products.map(product => {
                     return (
                         <Product data={product} key={product.name}></Product>
                     )
