@@ -1,6 +1,11 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ProductContext } from '../Context/productcontext';
 
 const Header = () => {
+
+    const [products, setProduct] = useContext(ProductContext);
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -16,6 +21,9 @@ const Header = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/browse">Browse</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/signup">Register</Link>
+                        </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dropdown
@@ -30,11 +38,15 @@ const Header = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/event" tabIndex="-1" aria-disabled="true">Event Handling</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/" tabIndex="-1" aria-disabled="true">No. of Products : {products.length}</Link>
+                        </li>
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
+                    
                 </div>
             </div>
         </nav>
