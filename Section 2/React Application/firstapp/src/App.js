@@ -11,6 +11,7 @@ import Register from './components/register';
 import { useState } from 'react';
 import { ProductProvider } from './Context/productcontext';
 import { UserProvider } from './Context/usercontext';
+import SignUp from './components/signup';
 
 function App() {
 
@@ -38,8 +39,11 @@ function App() {
             <Route path="/event">
               <EventHandling />
             </Route>
-            <Route path="/signup">
+            <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/signup">
+              <SignUp />
             </Route>
             <Route path="/clock">
               <Clock count={count} setCount={setCount}></Clock>

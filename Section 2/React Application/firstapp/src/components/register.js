@@ -3,9 +3,9 @@ import { UserContext } from "../Context/usercontext";
 
 const Register = () => {
 
-    const [users, setUser] = useContext(UserContext);
+    const userService = useContext(UserContext);
 
-    console.log(users);
+    console.log(userService.users);
 
     const cssStyles = {
         card: {
@@ -26,7 +26,7 @@ const Register = () => {
 
         console.log(name, email, password);
 
-        setUser([...users, {name, email, password}]);
+        userService.setUser([...users, {name, email, password}]);
     }
 
     return (
@@ -64,7 +64,7 @@ const Register = () => {
             </div>
 
             <div className="list-group">
-                {users.map((user, index) => {
+                {userService.users.map((user, index) => {
                     return (
                         <div className="list-group-item" key={index}>
                             {user.name} {user.email} {user.password}
