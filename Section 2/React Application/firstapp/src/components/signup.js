@@ -54,7 +54,7 @@ const SignUp = () => {
                                         <label className="mt-3">Password</label>
                                         <input name="password" onChange={handleChange} type="password" className="form-control" id="password" value={values.password} />
 
-                                        <Button variant="outlined" className="mt-5" color="primary">Submit</Button>
+                                        <Button type="submit" variant="outlined" className="mt-5" color="primary">Submit</Button>
 
                                         <p className="text-center mt-5 text-muted">Already have an Account? Sign In</p>
                                     </form>
@@ -71,7 +71,6 @@ const SignUp = () => {
 
             </div>
         </div>
-
     )
 }
 
