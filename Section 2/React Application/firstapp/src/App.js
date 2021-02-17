@@ -12,7 +12,7 @@ import { useState } from 'react';
 import { ProductProvider } from './Context/productcontext';
 import { UserProvider } from './Context/usercontext';
 import SignUp from './components/signup';
-import AdminDashbaord from './components/Admin';
+import AdminDashboard from './components/Admin';
 import Signin from './components/signin';
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
               <Clock count={count} setCount={setCount}></Clock>
             </Route>
             <Route path="/admin">
-              <AdminDashbaord />
+              <AdminDashboard />
             </Route>
             <Route path="/signin">
               <Signin />
